@@ -11,10 +11,12 @@ $(".sublist").hide();
 $(".mainmenu").click(function(){
 	var menudisplay = $(this).parent().find(".sublist").css("display");
 	if(menudisplay == "none"){
+		$(this).css("color","#08718E");
 		$(this).parent().find(".sublist").show();
 		$(this).parent().css("background-color", "#fafafa");
 	} else {
 		$(this).parent().find(".sublist").hide();
+		$(this).css("color","#999");
 	}
 })
 
