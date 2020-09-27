@@ -1,0 +1,66 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<!-- 메뉴 -->
+    <div id="side">
+        <ul id="menu">
+            <li>
+                <!-- 상품관리 메뉴(나중에 각 메뉴별로 href옵션에 링크 걸어야함) -->
+                <div>
+                    <div class="glyphicon glyphicon-gift"></div>
+                    <a href="#" id="item">상품관리</a>
+                    <ul class="sublist" id="itemlist">
+                        <li><a href="#">상품 조회</a></li>
+                        <li><a href="#">상품 등록</a></li>
+                        <li><a href="#">상품 수정&삭제</a></li>
+                        <li><a href="#">상품 대분류 관리</a></li>
+                    </ul>
+                </div>
+                <!-- 인사&급여관리 메뉴 -->
+                <div>
+                    <div class="glyphicon glyphicon-shopping-cart"></div>
+                    <a href="#" id="employee">인사&급여관리</a>
+                    <ul class="sublist" id="employeelist">
+                        <li><a href="#">인사관리</a></li>
+                        <li><a href="#">급여관리</a></li>
+                    </ul>
+                </div>
+                <!-- 재고관리 메뉴 -->
+                <div>
+                    <div class="glyphicon glyphicon-user"></div>
+                    <a href="#" id="customer">재고관리</a>
+                    <ul class="sublist" id="orderlist">
+                        <li><a href="#">재고실사</a></li>
+                        <li><a href="#">재고조정</a></li>
+                        <li><a href="#">재고조정 내역관리</a></li>
+                        <li><a href="#">상품별 재고현황</a></li>
+                    </ul>
+                </div>
+                <!-- 입출고 관리 메뉴 -->
+                <div>
+                    <div class="glyphicon glyphicon-list-alt"></div>
+                    <a href="#" id="border">입출고관리</a>
+                    <ul class="sublist" id="borderlist">
+                        <li><a href="#">입출고 등록</a></li>
+                        <li><a href="#">입출고 내역관리</a></li>
+                    </ul>
+                </div>
+                <!-- 매출 관리 메뉴 -->
+                <div>
+                    <div class="glyphicon glyphicon-signal"></div>
+                    <a href="#" id="static">매출관리</a>
+                    <ul class="sublist" id="staticlist">
+                        <div>
+                            <a href="#" id="sales">기간대별 조회</a>
+                            <ul class="subsublist" id="saleslist">
+                                <li><a href="#">년도별 조회</a></li>
+                                <li><a href="#">분기별 조회</a></li>
+                            </ul>
+                        </div>
+                        <li><a href="#">카테고리별 조회</a></li>
+                        <li><a href="#">제품별 조회</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>

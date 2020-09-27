@@ -1,0 +1,32 @@
+// 세부메뉴 눌렀을 시 색 변화
+//var menu_color = $("#itemlist > li > a, #orderlist > li > a, #borderlist > li > a, #saleslist > li > a, #itemslist > li > a");
+//menu_color.click(function() {
+//    menu_color.css("color", "#999");
+//    $(this).css("color", "#08718E");
+//});
+alert("main");
+
+$(".mainmenu").click(function(){
+	alert("main");
+})
+
+
+
+$(function () {
+    $("#date1").datepicker({
+        dateFormat: "yy-mm-dd",
+        showOn: "both",
+        buttonImage: "../../images/icons8-calendar-28.png",
+        buttonImageOnly: true,
+        buttonText: "Select date",
+    });
+
+    $("#date2").datepicker({
+        dateFormat: "yy-mm-dd",
+        showOn: "both",
+        buttonImage: "../../images/icons8-calendar-28.png",
+        buttonImageOnly: true,
+        buttonText: "Select date",
+    });
+});
+

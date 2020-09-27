@@ -1,0 +1,5 @@
+package com.test.mherp.inventory;
+
+public class InventoryController {
+
+}

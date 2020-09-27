@@ -1,0 +1,14 @@
+ATMARK_RULE=\#a7ec21 | null | null | null | null | null
+ATTRIBUTE_NAME=\#f7c517 | null | false | false | false | false
+CLASS=\#11d943 | null | false | false | false | false
+COMBINATOR=\#a7ec21 | null | null | null | null | null
+COMMENT=\#556068 | null | null | null | null | null
+ID=\#a7ec21 | null | null | null | null | null
+NORMAL=\#e3e6e8 | null | null | null | null | null
+PROPERTY_NAME=\#0699f0 | null | false | false | false | false
+PROPERTY_VALUE=\#17c6a3 | null | null | true | null | null
+PSEUDO=\#fb518c | null | false | false | false | false
+SELECTOR=\#61ea26 | null | false | false | false | false
+SEMI_COLON=\#e3e6e8 | null | null | null | null | null
+UNIVERSAL=\#a7ec21 | null | null | null | null | null
+eclipse.preferences.version=1

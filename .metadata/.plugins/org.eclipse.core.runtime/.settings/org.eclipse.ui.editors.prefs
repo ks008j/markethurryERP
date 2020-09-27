@@ -1,0 +1,15 @@
+AbstractTextEditor.Color.Background=28,31,34
+AbstractTextEditor.Color.Background.SystemDefault=false
+AbstractTextEditor.Color.FindScope=29,116,150
+AbstractTextEditor.Color.SelectionBackground.SystemDefault=false
+AbstractTextEditor.Color.SelectionForeground.SystemDefault=false
+PHPReadOccurrenceIndicationColor=65,65,4
+PHPWriteOccurrenceIndicationColor=65,65,4
+STS4BootMarkerIndicationColor=54,81,25
+currentIPColor=44,49,53
+eclipse.preferences.version=1
+javaScriptOccurrenceIndicationColor=65,65,4
+org.eclipse.cdt.ui.occurrenceIndicationColor=65,65,4
+overviewRuler_migration=migrated_3.1
+printMarginColor=97,119,127
+pydevOccurrenceIndicationColor=65,65,4

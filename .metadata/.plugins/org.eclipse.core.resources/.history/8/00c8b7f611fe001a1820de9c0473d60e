@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+            @font-face {
+    font-family: 'IBMPlexSansKR-Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body, div, span, p, input, textarea, ul, ol, li, a, table, th, td, h1, h2, h3, h4, h5, h6, pre, code {
+	font-family: 'IBMPlexSansKR-Light';
+}
+
+.container {
+	width: 800px;
+}
+
+.footer {
+	border-top: 1px solid #ddd;
+	margin-top: 50px;
+}
+
+.content {
+	min-height: 500px;
+}
+
+.table td {
+	text-align: center;
+	vertical-align: middle;
+}
+
+.table th {
+	text-align: center;
+	vertical-align: middle;
+	background-color: #eee;
+}
