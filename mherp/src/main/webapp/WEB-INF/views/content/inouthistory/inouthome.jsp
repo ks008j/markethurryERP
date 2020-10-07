@@ -174,103 +174,102 @@
 </style>
 <body>
 
-	<div id="main">
-		<div id="container">
+	<!-- 	<div id="main"> -->
+	<div id="container">
 
-			<!-- 전체 내용을 묶는 div#container -->
-			<!-- main 상단 -->
-			<div id="headerTitle">
-				<div id="menustep">
-					<span>홈 > 입출고관리 > 입출고 내역 조회</span>
-				</div>
-				<div id="menuname">
-					<span>입출고 내역 조회</span>
-				</div>
+		<!-- 전체 내용을 묶는 div#container -->
+		<!-- main 상단 -->
+		<div id="headerTitle">
+			<div id="menustep">
+				<span>홈 > 입출고관리 > 입출고 내역 조회</span>
 			</div>
-
-			<!-- 기능별 검색내용을 입력하는 div를 묶는 div#searchOrder -->
-			<!-- 기능별 검색내용을 입력하는 div를 묶는 div#searchOrder -->
-			<form method="GET" action="/mh/admin/order/totalorderok.do"
-				id="membersubmit">
-				<table id="tblsearch">
-					<tr>
-						<th>검색어</th>
-						<td><select id="sel1" name="category">
-								<option>상품번호</option>
-								<option>상품명</option>
-								<option>등록자</option>
-						</select> <input type="text" class="txtbox" id="txt1" name="word" /></td>
-					</tr>
-					<tr>
-						<th>입고기간</th>
-						<td><input type="text" class="datepick" id="date1"
-							name="startdate" /> <span id="taste">~</span> <input type="text"
-							class="datepick" id="date2" name="enddate" /></td>
-					</tr>
-
-				</table>
-
-			</form>
-
-			<!-- 검색 버튼을 묶는 orderBtn-->
-			<div id="orderBtn">
-				<input type="button" value="검색" id="btn1" class="btnSearch" /> <input
-					type="button" value="초기화" id="btn2" class="btnSearch" />
+			<div id="menuname">
+				<span>입출고 내역 조회</span>
 			</div>
-
-			<!-- 검색결과 -->
-
-			<div id="searchresult">▶ 검색결과</div>
-
-			<div id="result">
-				<div id="orderResult">
-					검색결과 ( <span id="resultCount" style="color: red;">0</span>건 )
-				</div>
-				<table id="resultTable" class="table table-bordered">
-					<tr class="resultList">
-						<th><input type="checkbox" id="allCheck"></th>
-						<th id="thnum">상품번호</th>
-						<th id="thname">상품명</th>
-						<th id="thprice">상품가격</th>
-						<th id="thin">입고날짜</th>
-						<th id="thout">출고날짜</th>
-						<th id="thstaff">등록자</th>
-					</tr>
-					<c:forEach items="${list}" var="dto">
-						<tr class="resultList">
-							<td><input type="checkbox" class="productCheck"></td>
-							<td>${dto.seq }</td>
-							<td>${dto.regdate }</td>
-							<td>
-								<div class="productCategory overflowtd">
-									<div>${dto.category }</div>
-								</div>
-							</td>
-							<td>
-								<div class="productName overflowtd">
-									<div>${dto.name }</div>
-								</div>
-							</td>
-							<td>
-								<div class="productQty overflowtd">
-									<div>${dto.qty }</div>
-								</div>
-							</td>
-							<td>${dto.price}</td>
-						</tr>
-					</c:forEach>
-				</table>
-			</div>
-
-			<!-- 삭제 버튼 -->
-			<div id="resultBtn">
-				<input type="button" value="출고" id="btn3" class="btnSearch" /> <input
-					type="button" value="수정" id="btn4" class="btnSearch" /> <input
-					type="button" value="삭제" id="btn5" class="btnSearch" />
-			</div>
-
 		</div>
+
+		<!-- 기능별 검색내용을 입력하는 div를 묶는 div#searchOrder -->
+		<!-- 기능별 검색내용을 입력하는 div를 묶는 div#searchOrder -->
+		<form method="GET" action="/mh/admin/order/totalorderok.do"
+			id="membersubmit">
+			<table id="tblsearch">
+				<tr>
+					<th>검색어</th>
+					<td><select id="sel1" name="category">
+							<option>상품번호</option>
+							<option>상품명</option>
+					</select> <input type="text" class="txtbox" id="txt1" name="word" required
+						value="${search}" /></td>
+				</tr>
+				<tr>
+					<th>입고기간</th>
+					<td><input type="text" class="datepick" id="date1"
+						name="startdate" /> <span id="taste">~</span> <input type="text"
+						class="datepick" id="date2" name="enddate" /></td>
+				</tr>
+
+			</table>
+
+		</form>
+
+		<!-- 검색 버튼을 묶는 orderBtn-->
+		<div id="orderBtn">
+			<input type="button" value="검색" id="btn1" class="btnSearch" /> <input
+				type="button" value="초기화" id="btn2" class="btnSearch" />
+		</div>
+
+		<!-- 검색결과 -->
+
+		<div id="searchresult">▶ 검색결과</div>
+
+		<div id="result">
+			<div id="orderResult">
+				검색결과 ( <span id="resultCount" style="color: red;">0</span>건 )
+			</div>
+			<table id="resultTable" class="table table-bordered">
+				<tr class="resultList">
+					<th><input type="checkbox" id="allCheck"></th>
+					<th id="thnum">상품번호</th>
+					<th id="thname">상품명</th>
+					<th id="thprice">상품가격</th>
+					<th id="thin">날짜</th>
+					<th id="thout">입출고현황</th>
+				</tr>
+				<c:forEach items="${inoutlist}" var="dto">
+					<tr class="resultList">
+						<td><input type="checkbox" class="productCheck"></td>
+						<td>${dto.seq }</td>
+						<td>${dto.name }</td>
+						<td>
+							<div class="productCategory overflowtd">
+								<div>${dto.price }</div>
+							</div>
+						</td>
+						<td>
+							<div class="productName overflowtd">
+								<div>${dto.regdate }</div>
+							</div>
+						</td>
+						<td>
+							<div class="productQty overflowtd">
+								<div>${dto.status }</div>
+							</div>
+						</td>
+						<%-- 	<td>${dto.price}</td> --%>
+					</tr>
+				</c:forEach>
+			</table>
+		</div>
+
+		<!-- 삭제 버튼 -->
+		<div id="resultBtn">
+			<input type="button" value="출고" id="btn3" class="btnSearch" /> 
+			<input type="button" value="수정" id="btn4" class="btnSearch" onclick="location.href='edit.action?seq=${dto.seq}';"/> 
+			<input type="button" value="삭제" id="btn5" class="btnSearch" onclick="location.href='delete.action?seq=${dto.seq}';" />
+		</div>
+
 	</div>
+	<!-- 	</div> -->
 
 	<script>
 		// 테이블의 행 갯수 (지금은 검색된 결과의 갯수)

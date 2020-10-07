@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace = "inventory">
+	
+	<insert id = "enrollInventory" parameterType="idto">
+		insert into inventory (seq, productseq, employeeseq, regdate, reason, qty, delflag) values 
+		(seqinventory.nextVal, #{productseq}, #{employeeseq}, #{regdate}, #{reason}, #{qty}, 0)
+	</insert>
+	
+	<select id="getPinfo" parameterType="String" resultType="java.util.HashMap">
+		select * from 
+			(select (select name from product where seq = productseq) as pname, 
+					(select category from procategory where seq = (select categoryseq from product where seq=productseq)) as pcategory,
+					qty 
+					from inventory 
+					where productseq = #{productseq} order by seq desc) 
+		where rownum=1
+	</select>
+	
+	<select id="getTotalProductCnt" resultType="Integer">
+		select count(*) as cnt from product	
+	</select>		
+		
+	<select id="getRecentList" resultType="idto">	
+		select  seq, 
+			(select name from product where seq = productseq) as productseq, 
+			(select name from employee where seq = productseq) as employeeseq, 
+			regdate, reason, qty 
+			from inventory where regdate > sysdate - 7 and delflag = 0 order by seq desc
+	</select>
+	
+	<select id="getInventoryInfo" resultType="idto">	
+			select  seq, 
+					(select name from employee where seq = employeeseq) as employeeseq, 
+					(select distinct name from product where seq = productseq) as productseq, 
+					regdate, reason, qty
+			from inventory 
+			where delflag = 0 order by seq desc
+	</select>
+</mapper>

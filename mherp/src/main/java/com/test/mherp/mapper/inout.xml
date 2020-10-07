@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="inout">
+
+	<select id="selectlist" resultType="com.test.mherp.inouthistory.inoutDTO">
+
+		select ih.productseq as seq, 
+		p.name as name, 
+		to_char(p.price, '999,999,999,999') as price, 
+		to_char(ih.regdate,'yyyy-mm-dd') as regdate,
+		case
+		when ih.category = 0 then '입고'
+		when ih.category = 1 then '출고'
+		end as status
+		from inouthistory ih
+		inner join product p
+		on p.seq = ih.productseq
+		where ih.delflag = 0
+		order by seq desc
+
+	</select>
+
+	<insert id="insertlist" parameterType="com.test.mherp.inouthistory.inoutDTO">
+	
+		insert into inouthistory (seq, productseq, qty, regdate, category, delflag) values (seqinouthistory.nextVal, #{productseq}, #{qty}, sysdate, #{category}, default)
+	
+	</insert>
+	
+	<update id="editlist" parameterType="com.test.mherp.inouthistory.inoutDTO">
+		update inouthistory set regdate = #{regdate}, qty = #{qty} where seq = #{seq}
+	
+	</update>
+	
+	<update id="deletelist" parameterType="com.test.mherp.inouthistory.inoutDTO">
+		update inouthistory set delflag = 1 where seq = #{seq}
+	</update>
+</mapper>

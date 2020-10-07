@@ -22,10 +22,19 @@ $(".mainmenu").click(function(){
 
 
 $(function () {
+	$(".datepickerimg").datepicker({
+        dateFormat: "yy-mm-dd",
+        showOn: "both",
+        buttonImage: "/mherp/resources/images/icons8-calendar-28.png",
+        buttonImageOnly: true,
+        buttonText: "Select date",
+    });
+	
+	
     $("#date1").datepicker({
         dateFormat: "yy-mm-dd",
         showOn: "both",
-        buttonImage: "../../images/icons8-calendar-28.png",
+        buttonImage: "/mherp/resources/images/icons8-calendar-28.png",
         buttonImageOnly: true,
         buttonText: "Select date",
     });
@@ -33,7 +42,7 @@ $(function () {
     $("#date2").datepicker({
         dateFormat: "yy-mm-dd",
         showOn: "both",
-        buttonImage: "../../images/icons8-calendar-28.png",
+        buttonImage: "/mherp/resources/images/icons8-calendar-28.png",
         buttonImageOnly: true,
         buttonText: "Select date",
     });

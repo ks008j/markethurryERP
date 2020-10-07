@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="product">
+
+	<!-- 주문내역이 있어야만 검색되는 것, 기본 정렬은 최종 판매일 내림차순      
+		 상품번호, 상품분류, 상품명, 상품가격, 판매량, 최종 판매일 -->
+
+	<select id="search" resultType="pdto" parameterType="String">
+		        
+		select distinct p.seq as seq, pc.category as category, p.name as name, p.price as price, p.sales as sales, substr(to_char(ol.regdate), 1, 10) as odate
+		from orderdetail od
+		    inner join orderlist ol
+		        on od.orderseq = ol.seq
+		            inner join product p
+		                on od.productseq = p.seq
+		                    inner join procategory pc
+		                        on p.categoryseq = pc.seq
+		                        	where name = #{name}
+		                            	order by odate desc
+		                            	
+		 <!-- select p.seq as seq, pc.category as category, p.name as name, p.price as price, p.sales as sales, (select substr(to_char(ol.regdate), 1, 10) from orderlist where seq = od.orderseq) as odate
+		from orderdetail od
+		    inner join orderlist ol
+		        on od.orderseq = ol.seq
+		            inner join product p
+		                on od.productseq = p.seq
+		                    inner join procategory pc
+		                        on p.categoryseq = pc.seq
+		                            order by odate desc; -->
+		                            
+		<!-- select p.seq as seq, pc.category as category, p.name as name, p.price as price, p.sales as sales, (select max(substr(to_char(regdate), 1, 10)) from orderlist where seq = od.orderseq) as odate
+		from  product p
+		                on od.productseq = p.seq
+		                    inner join procategory pc
+		                        on p.categoryseq = pc.seq
+		                            order by odate desc -->
+		                            
+		                            
+		<!-- select p.seq as seq, pc.category as category, p.name as name, p.price as price, p.sales as sales 
+				,(select max(substr(to_char(regdate), 1, 10))
+					from orderlist ol
+			    		inner join orderdetail od
+			        		on ol.seq = od.orderseq
+			            		where od.productseq = p.seq) as odate
+		from product p
+            inner join procategory pc
+                on p.categoryseq = pc.seq
+                    order by odate desc -->
+                    
+                    
+        select p.seq as seq, pc.category as category, p.name as name, p.price as price, p.sales as sales 
+				,(select max(substr(to_char(regdate), 1, 10))
+					from orderlist ol
+			    		inner join orderdetail od
+			        		on ol.seq = od.orderseq
+			            		where od.productseq = p.seq) as odate
+		from product p
+            inner join procategory pc
+                on p.categoryseq = pc.seq
+                	where p.name = #{name}
+                    	order by odate desc
+		                          
+		                            
+	</select>
+
+
+	<select id="list" resultType="pdto">
+		<!-- select p.seq as seq, pc.category as category, p.name as name, p.price as price, p.sales as sales, substr(to_char(ol.regdate), 1, 10) as odate
+		from orderdetail od
+		    inner join orderlist ol
+		        on od.orderseq = ol.seq
+		            inner join product p
+		                on od.productseq = p.seq
+		                    inner join procategory pc
+		                        on p.categoryseq = pc.seq
+		                            order by odate desc -->
+		                            
+		select p.seq as seq, pc.category as category, p.name as name, p.price as price, p.sales as sales 
+				,(select max(substr(to_char(regdate), 1, 10))
+					from orderlist ol
+			    		inner join orderdetail od
+			        		on ol.seq = od.orderseq
+			            		where od.productseq = p.seq) as odate
+		from product p
+            inner join procategory pc
+                on p.categoryseq = pc.seq
+                    order by odate desc
+	</select>
+	
+	
+	<insert id="add" parameterType="pdto">
+		insert into product (seq, name, shortdesc, content, categoryseq, price, regdate, img, sales) 
+			values (seqproduct.nextVal, #{name}, #{shortdesc}, #{content}, #{categoryseq}, #{price}, sysdate, #{img}, 0)
+	</insert>
+	
+	
+	<update id="edit" parameterType="String">
+		update
+	</update>
+	
+	
+	<update id="delete" parameterType="String">
+		update product set delflag = 1 where seq = #{seq}
+	</update>
+	
+	
+	<select id="get" resultType="pdto" parameterType="String">
+		select seq, name, price, shortdesc, content from product where seq = 1
+	</select>
+</mapper>

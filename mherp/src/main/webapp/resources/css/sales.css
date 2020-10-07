@@ -1,0 +1,154 @@
+/* 상단 헤더 */
+#menustep>span {
+    font-size: 1.2em;
+    color: #999999;
+}
+
+#menuname>span {
+    font-size: 2em;
+    font-weight: bold;
+    color: #666666;
+}
+
+/* 상단 헤더 */
+#menustep > span {
+    font-size: 1.2em;
+    color: #999999;
+}
+
+#menuname > span {
+    font-size: 2em;
+    font-weight: bold;
+    color: #666666;
+}
+
+#menustep {
+    margin-bottom: 15px;
+}
+
+#headerTitle {
+    width: 1570px;
+    margin: 30px auto;
+}
+
+/* 테이블 */
+#tblsearch {
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+    margin: 0px 15px;
+    padding: 10px;
+    width: 1200px;
+}
+
+#tblsearch td, #tblsearch th {
+    border: 1px solid #ccc;
+    height: 50px;
+}
+
+#tblsearch th {
+    text-align: center;
+    width: 300px;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: #F3F3F3;
+}
+
+#tblsearch td {
+    width: 1350px;
+    padding-left: 10px;
+}
+
+#taste { margin-left: 10px; }
+
+.datepick {height: 30px;}
+.ui-datepicker-week-end .ui-state-default {color:RED;}
+.hasDatepicker { 
+    width: 120px;
+    margin: 0px 10px;
+    text-align: center;
+}
+
+#sel1, #sel2 {
+    height: 30px;
+    border-color: #aaa;
+    margin-left: 10px;
+}
+
+.txtbox {
+    height: 30px;
+    width: 800px;
+    border: 1px solid #aaa;
+    margin-left: 5px;
+    padding-left: 10px;
+}
+
+/* 버튼 */
+.btnSearch { 
+    outline: none;
+    background-color: white;
+    border: 1px solid #ccc;
+    font-weight: bold;
+    width: 100px;
+    height: 40px;
+    padding-top: 10px;
+    padding-bottom: 25px;
+}
+
+#btn1 {
+    /* 검색 버튼 */
+    background-color: #ccc;
+    /* border: none; */
+}
+
+#orderBtn {
+    width: 1195px;
+    margin: 0px 20px;
+    margin-top: 30px;
+    text-align: center;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #aaa;
+}
+
+#searchresult {
+    width: 1570px;
+    margin: 0px auto;
+    margin-top: 40px;
+    font-size: 2em;
+    font-weight: bold;
+    color: #666666;
+}
+
+.SearchResultBox {
+    width: 310px;
+    height: 40px;
+    text-align: center;
+}
+
+#result {
+    border: none;
+    width: 1190px;
+    margin: 0px 20px;
+}
+
+#orderResult {
+    margin: 20px auto;
+}
+
+#deleteBtn {
+    background-color: #ccc;
+}
+
+#secondBtn {
+    width: 1570px;
+    margin: 0px auto;
+    text-align: right;
+}
+
+#resultTable td {
+    vertical-align: middle;
+}
+
+.overflowtd {
+    overflow: hidden;
+    height: 20px;
+}

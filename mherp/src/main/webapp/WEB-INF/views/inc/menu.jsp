@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+	<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
 <!-- 메뉴 -->
@@ -30,10 +30,9 @@
                     <div class="glyphicon glyphicon-user"></div>
                     <a href="javascript:void(0);" id="inventory" class="mainmenu">재고관리</a>
                     <ul class="sublist" id="inventorylist">
-                        <li><a href="#">재고실사</a></li>
-                        <li><a href="#">재고조정</a></li>
-                        <li><a href="#">재고조정 내역관리</a></li>
-                        <li><a href="#">상품별 재고현황</a></li>
+                        <li><a href="/mherp/inventory/enrollinventory.action">재고실사 및 조정</a></li>
+                        <li><a href="/mherp/inventory/edithistory.action">재고조정 내역관리</a></li>
+                        <li><a href="/mherp/inventory/inventorybyproduct.action">상품별 재고현황</a></li>
                     </ul>
                 </div>
                 <!-- 입출고 관리 메뉴 -->
